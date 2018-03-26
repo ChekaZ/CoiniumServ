@@ -134,6 +134,7 @@
     <Compile Include="Algorithms\Implementations\Nist5.cs" />
     <Compile Include="Algorithms\Implementations\Qubit.cs" />
     <Compile Include="Algorithms\Implementations\Scrypt.cs" />
+    <Compile Include="Algorithms\Implementations\NeoScrypt.cs" />
     <Compile Include="Algorithms\Implementations\ScryptN.cs" />
     <Compile Include="Algorithms\Implementations\ScryptOg.cs" />
     <Compile Include="Algorithms\Implementations\Sha1.cs" />

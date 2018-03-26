@@ -1,0 +1,11 @@
+{
+    "name": "Trezarcoin",
+    "symbol": "TZC",
+    "algorithm": "neoscrypt",
+    "site": "https://trezarcoin.com/",
+    "blockExplorer": {
+        "block": "https://explorer.trezarcoin.com/block/",
+        "tx": "https://explorer.trezarcoin.com/tx/",
+        "address": "https://explorer.trezarcoin.com/address/"
+    }
+}

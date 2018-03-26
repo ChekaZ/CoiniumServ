@@ -38,6 +38,7 @@ namespace CoiniumServ.Algorithms
         // algorithm names
         public const string Blake = "blake";
         public const string C11 = "c11";
+        public const string NeoScrypt = "neoscrypt";
         public const string Fresh = "fresh";
         public const string Fugue = "fugue";
         public const string Groestl = "groestl";
@@ -85,6 +86,7 @@ namespace CoiniumServ.Algorithms
             _applicationContext.Container.Register<IHashAlgorithm, Scrypt>(Scrypt).AsMultiInstance();
             _applicationContext.Container.Register<IHashAlgorithm, ScryptOg>(ScryptOg).AsMultiInstance();
             _applicationContext.Container.Register<IHashAlgorithm, ScryptN>(ScryptN).AsMultiInstance();
+            _applicationContext.Container.Register<IHashAlgorithm, NeoScrypt>(NeoScrypt).AsMultiInstance();
 
             // multi-hashers
             _applicationContext.Container.Register<IHashAlgorithm, X11>(X11).AsMultiInstance();

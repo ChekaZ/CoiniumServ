@@ -1,8 +1,8 @@
 {
     "name": "Feathercoin",
     "symbol": "FTC",
-    "algorithm": "scrypt",
-    "site": "http://feathercoin.com/",
+    "algorithm": "neoscrypt",
+    "site": "https://feathercoin.com/",
     "blockExplorer": {
         "block": "https://explorer.feathercoin.com/block/",
         "tx": "https://explorer.feathercoin.com/tx/",
