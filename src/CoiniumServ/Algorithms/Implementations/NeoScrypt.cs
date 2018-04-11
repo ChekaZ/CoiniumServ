@@ -29,11 +29,16 @@
 
 using System;
 using CryptSharp.Utility;
+using System.Runtime.InteropServices;
 
 namespace CoiniumServ.Algorithms.Implementations
 {
     public sealed class NeoScrypt : IHashAlgorithm
     {
+
+        [DllImport("NeoScrypt.dll", EntryPoint = "neoscrypt_export", CallingConvention = CallingConvention.Cdecl)]
+        public static extern unsafe int neoscrypt(byte* input, byte* output, uint inputLength, uint profile);
+
         public UInt32 Multiplier { get; private set; }
 
         /// <summary>
@@ -61,9 +66,18 @@ namespace CoiniumServ.Algorithms.Implementations
             Multiplier = (UInt32) Math.Pow(2, 16);
         }
 
-        public byte[] Hash(byte[] input)
+        public unsafe byte[] Hash(byte[] input)
         {
-            return SCrypt.ComputeDerivedKey(input, input, _n, _r, _p, null, 32);
+            var result = new byte[32];
+
+            fixed (byte* inputb = input)
+            {
+                fixed (byte* outputb = input)
+                {
+                    neoscrypt(inputb, outputb, (uint)input.Length, 0x1);
+                }
+            }
+            return result;
         }
     }
 }
