@@ -72,7 +72,7 @@ namespace CoiniumServ.Algorithms.Implementations
 
             fixed (byte* inputb = input)
             {
-                fixed (byte* outputb = input)
+                fixed (byte* outputb = result)
                 {
                     neoscrypt(inputb, outputb, (uint)input.Length, 0x1);
                 }
