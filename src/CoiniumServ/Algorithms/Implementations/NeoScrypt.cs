@@ -36,8 +36,8 @@ namespace CoiniumServ.Algorithms.Implementations
     public sealed class NeoScrypt : IHashAlgorithm
     {
 
-        [DllImport("NeoScrypt.dll", EntryPoint = "neoscrypt_export", CallingConvention = CallingConvention.Cdecl)]
-        public static extern unsafe int neoscrypt(byte* input, byte* output, uint inputLength, uint profile);
+        [DllImport("NeoScrypt")]
+        public static extern unsafe int neoscrypt(byte* input, byte* output, uint profile);
 
         public UInt32 Multiplier { get; private set; }
 
@@ -70,11 +70,11 @@ namespace CoiniumServ.Algorithms.Implementations
         {
             var result = new byte[32];
 
-            fixed (byte* inputb = input)
+            fixed (byte* data = input)
             {
-                fixed (byte* outputb = result)
+                fixed (byte* output = result)
                 {
-                    neoscrypt(inputb, outputb, (uint)input.Length, 0x1);
+                    neoscrypt(data, output, 0x1);
                 }
             }
             return result;
